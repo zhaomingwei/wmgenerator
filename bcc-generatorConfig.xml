@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 内部DTD 亦可通过外部DTD来实现-->
+<!DOCTYPE generatorConfiguration SYSTEM "generator.dtd">
+   
+<generatorConfiguration> 
+	<context id="ables" targetRuntime="MyBatis3">
+
+		<plugin type="run.override.PluginChain" />
+		<plugin type="run.override.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<commentGenerator type="run.override.CommentGenerator"/>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.10.31:3306/bcc?characterEncoding=utf8"
+			userId="root" password="jumengsit">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.jumstc.bcc.domain.entity.authBus.authApplyForm" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.jumstc.bcc.domain.mapper.authBus.authApplyForm" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.jumstc.bcc.domain.mapper.authBus.authApplyForm" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<javaServiceGenerator  targetPackage="cn.creditease.elecsigndemo.biz.service"
+				implementationPackage = "cn.creditease.elecsigndemo.biz.service.impl" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+		</javaServiceGenerator>
+
+
+		<!-- 批次表，针对批量的异步操作 -->
+		<table tableName="t_bcc_auth_apply_form" domainObjectName="AuthApplyForm"
+			   alias="authApplyForm">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+	</context>
+</generatorConfiguration>

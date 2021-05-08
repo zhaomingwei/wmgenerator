@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 内部DTD 亦可通过外部DTD来实现-->
+<!DOCTYPE generatorConfiguration SYSTEM "generator.dtd">
+   
+<generatorConfiguration> 
+	<context id="ables" targetRuntime="MyBatis3">
+
+		<plugin type="run.override.PluginChain" />
+		<plugin type="run.override.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<commentGenerator type="run.override.CommentGenerator"/>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.67.12.233:3306/easysigndemo?characterEncoding=utf8"
+			userId="dianqian" password="abcd1234">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="cn.creditease.elecsigndemo.model" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mapper.cn.creditease.elecsigndemo.dao" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.creditease.elecsigndemo.dao" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<javaServiceGenerator  targetPackage="cn.creditease.elecsigndemo.biz.service"
+				implementationPackage = "cn.creditease.elecsigndemo.biz.service.impl" targetProject=".\src">
+			<property name="enableSubPackages" value="false" />
+		</javaServiceGenerator>
+
+
+		<!-- 批次表，针对批量的异步操作 -->
+		<table tableName="els_asynchronous" domainObjectName="ElsAsynchronous"
+			   alias="elsAsynchronous">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<!-- 批量明细表，针对批量的异步操作 -->
+		<table tableName="els_asynchronous_detail" domainObjectName="ElsAsynchronousDetail"
+			   alias="els_account">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<!-- 账户表 -->
+
+		<table tableName="els_auth_code" domainObjectName="ElsAuthCode"
+			   alias="elsAuthCode">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_bundle" domainObjectName="ElsBundle"
+			   alias="elsBundle">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_cert" domainObjectName="ElsCert"
+			   alias="elsCert">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_account" domainObjectName="ElsAccount"
+			   alias="els_account">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_doc" domainObjectName="ElsDoc"
+			   alias="elsDoc">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_doc_record" domainObjectName="ElsDocRecord"
+			   alias="elsDocRecord">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_file_info" domainObjectName="ElsFileInfo"
+			   alias="elsFileInfo">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_hpage_token" domainObjectName="ElsHpageToken"
+					   alias="elsHpageToken">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_invitation" domainObjectName="ElsInvitation"
+					   alias="elsInvitation">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_merchant" domainObjectName="ElsMerchant"
+			   alias="elsMerchant">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_merchant_cfg" domainObjectName="ElsMerchantCfg"
+						 alias="elsMerchantCfg">
+		<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_notary" domainObjectName="ElsNotary"
+			   alias="elsNotary">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_notice" domainObjectName="ElNotice"
+			   alias="elsNotice">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_org" domainObjectName="ElsOrg"
+			   alias="elsOrg">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_person" domainObjectName="ElsPerson"
+			   alias="elsPerson">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_seal" domainObjectName="ElsSeal"
+			   alias="elsSeal">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_send_mailsms" domainObjectName="ElsSendMailsms"
+			   alias="elsSendMailsms">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_service_list" domainObjectName="ElsServiceList"
+			   alias="elsServiceList">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_signature" domainObjectName="ElsSignature"
+			   alias="elsSignature">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<table tableName="els_template" domainObjectName="ElsTemplate"
+			   alias="ElsTemplate">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>
